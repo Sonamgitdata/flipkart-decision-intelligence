@@ -1,0 +1,12 @@
+PART 1 STATISTICAL ANALYSIS RESULTS
+===================================
+Mean: 32.2494
+Standard Deviation: 16.1959
+Standard Error: 0.5726
+95% Confidence Interval: (31.1254, 33.3734)
+Z-Statistic: -118.3189
+p-value: 0.0000
+Required Sample Size: 62
+Simple Linear Regression Slope: -0.1490
+Simple Linear Regression Intercept: 13.7445
+Multiple Regression Coefficients (b0, b1, b2): [-1.4724623829497958, -0.05527225134127861, 0.6485795259803411]
