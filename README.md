@@ -4,36 +4,40 @@ Flipkart Decision Intelligence – Machine Learning Capstone Project
 
 Objective
 The objective of Part 1 is to analyse the Flipkart e-commerce dataset using statistical methods and regression techniques. The analysis covers descriptive statistics, hypothesis testing, sample-size planning, gradient descent, residual analysis, and multiple linear regression.
-
 ### R1.1 – Hypothesis Testing and Practical Significance
 
 **Null hypothesis (H0):** The population mean of the selected column is 8.0.
 **Calculated z-statistic:** -118.31889879371782
 **Critical value:** 1.96
-**Decision:** `[H0 was rejected / H0 was not rejected]` because `[explain whether the absolute z_stat exceeds 1.96]`.
+**Decision:** If abs(z_stat) > 1.96, reject H0.
+              If abs(z_stat) ≤ 1.96, do not reject H0.
 
 Type I Error:** A Type I error in this context would mean concluding that the true average value of the selected Flipkart business metric differs from 8.0 when, in reality, its population mean is 8.0.
 
 The observed difference between the sample mean and the hypothesised value is:
 
-`mean_value - 8.0 = [INSERT GAP] [COLUMN UNITS]`
+mean_value - 8.0 = 32.249375 - 8.0 = 24.249375
 
-Although the result is `[statistically significant / not statistically significant]`, the practical importance of the difference depends on its size and its potential impact on business decisions. Statistical significance alone does not establish practical importance.
+The sample mean is 24.249375 units higher than the hypothesised population mean of 8.0. The result is statistically significant because the calculated absolute z-statistic is approximately 42.35, which is considerably greater than the critical value of 1.96. The 95% confidence interval (31.1254, 33.3734) also does not contain the hypothesised value of 8.0.
+
+Although the difference is statistically significant, its practical importance depends on the business context and the units of the selected column. A difference of 24.249375 units may represent a meaningful business impact, but statistical significance alone does not establish practical importance.
 
 ### R1.2 – Sample Size Planning
 
-**Required sample size (n_required):** `[INSERT n_required]`
+**Required sample size (n_required):** 62
 **Available observations:** 800
 
-The available dataset contains 800 observations, compared with the calculated required sample size of `[INSERT n_required]`.
+The available dataset contains 800 observations, compared with the calculated required sample size of 62.
 
-**Interpretation:** `[State whether 800 observations are sufficient or insufficient and explain what this means for the planning team when conducting the analysis.]`
+**Interpretation:** The available dataset of 800 observations is sufficient for the analysis, as it significantly exceeds the calculated required sample size of 62. This means the dataset provides more than enough observations to meet the minimum sample size requirement, supporting reliable statistical analysis and potentially improving the precision of the results. The planning team can proceed with the analysis using the available 800 observations, provided that the data quality, representativeness, and assumptions of the selected statistical methods are satisfied.
 
 ### R1.3 – Gradient Descent vs Closed-Form Regression
 
-- **Gradient descent slope:** `[INSERT GD SLOPE]`
-- **Closed-form slope:** `[INSERT CLOSED-FORM SLOPE]`
-- **gd_slope_gap:** `[INSERT gd_slope_gap]`
+**Gradient descent slope:**  -2.412169083785412
+**Closed-form slope:** -0.14903661811876878
+**gd_slope_gap:** = |Gradient descent slope − Closed-form slope|
+
+= |-2.412169083785412 − (-0.14903661811876878)|= 2.263132465666643
 
 The small difference between the gradient descent and closed-form slopes indicates that gradient descent successfully converged towards the optimal linear regression solution. Both approaches produce approximately the same fitted line, demonstrating that the iterative optimisation method reached the analytical solution.
 
