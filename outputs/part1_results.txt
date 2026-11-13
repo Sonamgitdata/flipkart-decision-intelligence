@@ -10,3 +10,22 @@ Required Sample Size: 62
 Simple Linear Regression Slope: -0.1490
 Simple Linear Regression Intercept: 13.7445
 Multiple Regression Coefficients (b0, b1, b2): [-1.4724623829497958, -0.05527225134127861, 0.6485795259803411]
+1. Predictors with absolute coefficients greater than 0.05
+- complaint_count_90d: 0.804037
+- discount_order_share: 0.204480
+- avg_order_value_inr_hundreds: 0.554021
+- cod_flag: 1.686518
+- plus_member_flag: 0.783243
+- churned: -0.250037
+The following predictors are excluded because their absolute coefficients are below 0.05:
+- customer_tenure_months
+- loyalty_score
+2. Model comparison
+- mr_adj_r2: 0.5641630721
+- loglog_adj_r2: 0.0823361584
+3. Completed interpretation
+The adjusted R-squared values indicate that the multiple regression model has a higher explanatory performance than the log-log model.
+
+The multiple regression model has an adjusted R-squared of 0.5642 (56.42%), while the log-log model has an adjusted R-squared of 0.0823 (8.23%).
+
+Therefore, the multiple regression model explains substantially more variation in order value than the log-log model. The improvement supports including the additional predictors, provided they are theoretically relevant and do not introduce data leakage or unnecessary complexity.
