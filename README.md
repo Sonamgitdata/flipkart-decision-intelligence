@@ -43,34 +43,33 @@ The small difference between the gradient descent and closed-form slopes indicat
 
 ### R1.4 – Residual Analysis: Raw vs Log Model
 
-- **resid_sd_ratio_raw:** `[INSERT VALUE]`
-- **resid_sd_ratio_log:** `[INSERT VALUE]`
+resid_sd_ratio_raw: 3.666057970026114
+resid_sd_ratio_log: 3.313343698781273
 
-The raw regression model `[shows / does not show]` a funnel-shaped residual pattern, where the spread of residuals `[increases / does not increase]` as the fitted values increase.
-
-The log-transformed model `[removes / does not remove]` this funnel pattern. This suggests that the log transformation `[improves / does not sufficiently improve]` the consistency of residual variance.
+The raw regression model shows a funnel-shaped residual pattern, where the spread of residuals generally increases as the fitted values increase.
+The log-transformed model reduces the funnel pattern. This suggests that the log transformation improves the consistency of residual variance, although some variation remains.
 
 ### R1.5 – Multiple Regression and Adjusted R-Squared Comparison
 
-**Predictors with absolute coefficients greater than 0.05 (excluding the constant):**
+1. Predictors with absolute coefficients greater than 0.05
+- complaint_count_90d: 0.804037
+- discount_order_share: 0.204480
+- avg_order_value_inr_hundreds: 0.554021
+- cod_flag: 1.686518
+- plus_member_flag: 0.783243
+- churned: -0.250037
+The following predictors are excluded because their absolute coefficients are below 0.05:
+- customer_tenure_months
+- loyalty_score
+2. Model comparison
+- mr_adj_r2: 0.5641630721
+- loglog_adj_r2: 0.0823361584
+3. Completed interpretation
+The adjusted R-squared values indicate that the multiple regression model has a higher explanatory performance than the log-log model.
 
-- `[PREDICTOR 1]`: `[COEFFICIENT]`
-- `[PREDICTOR 2]`: `[COEFFICIENT]`
-- `[PREDICTOR 3]`: `[COEFFICIENT]`
+The multiple regression model has an adjusted R-squared of 0.5642 (56.42%), while the log-log model has an adjusted R-squared of 0.0823 (8.23%).
 
-Apply the absolute coefficient threshold strictly: include every predictor satisfying `|coefficient| > 0.05` and exclude all others.
-
-**Model comparison:**
-
-- **mr_adj_r2:** `[INSERT VALUE]`
-- **loglog_adj_r2:** `[INSERT VALUE]`
-
-The adjusted R-squared values indicate whether the additional predictors improve the explanatory performance of the multiple regression model compared with the log-log model.
-
-`[Explain which model has the higher adjusted R-squared and whether the improvement justifies including the additional predictors.]`
-
-The coefficient threshold is a mechanical selection rule and should not be interpreted as a ranking of predictor importance. Coefficients have different measurement units, so their magnitudes are not directly comparable.
-
+Therefore, the multiple regression model explains substantially more variation in order value than the log-log model. The improvement supports including the additional predictors, provided they are theoretically relevant and do not introduce data leakage or unnecessary complexity.
 ### Part 1 Conclusion
 
 Part 1 applies statistical testing and regression techniques to understand the dataset, evaluate differences from a hypothesised mean, determine sample-size requirements, compare optimisation methods, investigate residual behaviour, and assess regression model performance.
